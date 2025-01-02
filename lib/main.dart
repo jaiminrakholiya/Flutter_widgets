@@ -1,21 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jan/tapbarexample.dart';
-void main() {
-  runApp(const MyApp());
+import 'package:flutter/cupertino.dart';
+
+class ScrollbarExample extends StatefulWidget {
+  const ScrollbarExample({super.key});
+
+  @override
+  State<ScrollbarExample> createState() => _ScrollbarExampleState();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
+class _ScrollbarExampleState extends State<ScrollbarExample> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Cupertino Scrollbar Example'),
+        ),
+        body: SafeArea(
+          child: CupertinoScrollbar(
+            child: ListView.builder(
+              itemCount: 100,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text("Item $index"),
+                );
+              },
+            ),
+          ),
+        ),
       ),
-      home: Tapbarexample(),
     );
   }
 }
