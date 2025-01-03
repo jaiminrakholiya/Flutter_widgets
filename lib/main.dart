@@ -1,34 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class ScrollbarExample extends StatefulWidget {
-  const ScrollbarExample({super.key});
+import 'Layout/Multi_child_layout_example/CarouselViewExample.dart';
 
-  @override
-  State<ScrollbarExample> createState() => _ScrollbarExampleState();
+void main() {
+  runApp(MyApp());
 }
 
-class _ScrollbarExampleState extends State<ScrollbarExample> {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Cupertino Scrollbar Example'),
-        ),
-        body: SafeArea(
-          child: CupertinoScrollbar(
-            child: ListView.builder(
-              itemCount: 100,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text("Item $index"),
-                );
-              },
-            ),
-          ),
-        ),
-      ),
+      home: CarouselWidget(),
     );
   }
 }
